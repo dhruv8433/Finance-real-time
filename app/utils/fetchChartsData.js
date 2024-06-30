@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { CHART_API_KEY } from '@/app/Config/config';
 
-const BASE_URL = 'https://financialmodelingprep.com/api/v3';
+const BASE_URL = process.env.BALANCE_API_URL;
 
 export const fetchChartData = async (symbol) => {
   const url = `${BASE_URL}/technical_indicator/5min/AMZN?type=standardDeviation&period=10&apikey=${CHART_API_KEY}`;
