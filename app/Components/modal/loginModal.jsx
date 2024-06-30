@@ -5,7 +5,14 @@ import Button from "@mui/material/Button";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
-import { Box, Container, Grid, Typography, Paper, useTheme } from "@mui/material";
+import {
+  Box,
+  Container,
+  Grid,
+  Typography,
+  Paper,
+  useTheme,
+} from "@mui/material";
 import { useDispatch } from "react-redux";
 import Link from "next/link";
 import Lottie from "lottie-react";
@@ -18,7 +25,7 @@ import { loginservice } from "@/app/utils/services/loginService";
 const LoginPage = () => {
   const dispatch = useDispatch();
   const router = useRouter();
-  const theme = useTheme()
+  const theme = useTheme();
   const [login, setLogin] = useState({
     username: "",
     password: "",
@@ -47,15 +54,24 @@ const LoginPage = () => {
     }
   };
 
-
   return (
     <>
-      <div style={{ paddingTop: "150px",paddingBottom: "180px", background: theme.palette.background.page }} className="min-h-screen px-20">
+      <div
+        style={{
+          paddingTop: "150px",
+          paddingBottom: "180px",
+          background: theme.palette.background.page,
+        }}
+        className="min-h-screen px-20"
+      >
         <Toast />
-        <Grid container spacing={2} sx={{ justifyContent: 'center' }}>
+        <Grid container spacing={2} sx={{ justifyContent: "center" }}>
           <Grid item xs={12} md={6}>
             <Box>
-              <Lottie animationData={loginAnimation} style={{ height: '500px' }} />
+              <Lottie
+                animationData={loginAnimation}
+                style={{ height: "500px" }}
+              />
             </Box>
           </Grid>
           <Grid
@@ -69,13 +85,16 @@ const LoginPage = () => {
             }}
           >
             <form onSubmit={handleSubmit}>
-              <Typography sx={{color: theme.palette.background.headline}} variant="h5" align="center" >
+              <Typography
+                sx={{ color: theme.palette.background.headline }}
+                variant="h5"
+                align="center"
+              >
                 Login
               </Typography>
-              <TextField
-                label="Username"
-                fullWidth
-                variant="outlined"
+              <input
+                className="bg-transparent w-full p-2 mt-2 rounded-lg border border-gray-500"
+                placeholder="Username"
                 onChange={(e) =>
                   setLogin({
                     ...login,
@@ -84,12 +103,12 @@ const LoginPage = () => {
                 }
                 value={login.username}
                 margin="normal"
+                style={{ color: theme.palette.background.headline }}
               />
-              <TextField
-                fullWidth
-                label="Password"
+              <input
                 type="password"
-                variant="outlined"
+                className="bg-transparent w-full p-2 mt-4 rounded-lg border border-gray-500 "
+                placeholder="password"
                 onChange={(e) =>
                   setLogin({
                     ...login,
@@ -98,6 +117,7 @@ const LoginPage = () => {
                 }
                 value={login.password}
                 margin="normal"
+                style={{ color: theme.palette.background.headline }}
               />
               <Button
                 variant="contained"
@@ -112,7 +132,10 @@ const LoginPage = () => {
               >
                 Login
               </Button>
-              <Typography align="center" sx={{ mt: 2, mr: 2, color: theme.palette.background.headline }}>
+              <Typography
+                align="center"
+                sx={{ mt: 2, mr: 2, color: theme.palette.background.headline }}
+              >
                 Don't have an account? <Link href="/signup">Sign up</Link>
               </Typography>
             </form>

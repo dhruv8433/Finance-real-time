@@ -15,7 +15,7 @@ import { signupservice } from "@/app/utils/services/SignupService";
 
 const SignUp = () => {
   const router = useRouter();
-  const theme = useTheme()
+  const theme = useTheme();
   const [signup, setSignup] = useState({
     username: "",
     password: "",
@@ -49,12 +49,23 @@ const SignUp = () => {
   }
   return (
     <>
-      <div className="min-h-screen px-20" style={{ paddingTop: "150px", paddingBottom: "180px", color: theme.palette.background.text, background: theme.palette.background.page }}>
+      <div
+        className="min-h-screen px-20"
+        style={{
+          paddingTop: "150px",
+          paddingBottom: "180px",
+          color: theme.palette.background.text,
+          background: theme.palette.background.page,
+        }}
+      >
         <ToastContainer />
         <Grid container spacing={2}>
           <Grid item xs={12} md={6}>
             <Box>
-              <Lottie animationData={loginAnimation} style={{ height: '500px' }} />
+              <Lottie
+                animationData={loginAnimation}
+                style={{ height: "500px" }}
+              />
             </Box>
           </Grid>
           <Grid
@@ -68,23 +79,15 @@ const SignUp = () => {
               paddingBottom: "30px",
             }}
           >
-            {/* <Paper
-              sx={{
-                padding: 4,
-                maxWidth: 400,
-                width: "100%",
-                backgroundColor: "white",
-                borderRadius: 8,
-              }}
-            > */}
             <form onSubmit={handleSubmit}>
               <Typography component="h1" variant="h4" mb={4}>
                 Create Account
               </Typography>
-              <TextField
-                label="Username"
-                variant="outlined"
-                fullWidth
+              <input
+                type="text"
+                className="bg-transparent w-full p-2 mt-2 rounded-lg border border-gray-500"
+                placeholder="Username"
+                style={{ color: theme.palette.background.headline }}
                 onChange={(e) =>
                   setSignup({
                     ...signup,
@@ -94,10 +97,11 @@ const SignUp = () => {
                 value={signup.username}
                 margin="normal"
               />
-              <TextField
-                label="Password"
-                fullWidth
+              <input
                 type="password"
+                className="bg-transparent w-full p-2 mt-4 rounded-lg border border-gray-500"
+                placeholder="password"
+                style={{ color: theme.palette.background.headline }}
                 variant="outlined"
                 onChange={(e) =>
                   setSignup({
@@ -108,10 +112,10 @@ const SignUp = () => {
                 value={signup.password}
                 margin="normal"
               />
-              <TextField
-                label="name"
-                fullWidth
-                variant="outlined"
+              <input
+                style={{ color: theme.palette.background.headline }}
+                className="bg-transparent w-full p-2 mt-4 rounded-lg border border-gray-500"
+                placeholder="Name"
                 onChange={(e) =>
                   setSignup({
                     ...signup,
@@ -121,10 +125,10 @@ const SignUp = () => {
                 value={signup.name}
                 margin="normal"
               />
-              <TextField
-                fullWidth
-                label="address"
-                variant="outlined"
+              <input
+                className="bg-transparent w-full p-2 mt-4 rounded-lg border border-gray-500"
+                placeholder="Address"
+                style={{ color: theme.palette.background.headline }}
                 onChange={(e) =>
                   setSignup({
                     ...signup,
@@ -144,12 +148,12 @@ const SignUp = () => {
                   background: theme.palette.background.button,
                   "&:hover": { backgroundColor: "#0069d9" },
                   color: theme.palette.background.text,
-                }}                >
+                }}
+              >
                 Create Account
               </Button>
               <Typography align="center" sx={{ mt: 2 }}>
-                are you already logged in?{" "}
-                <Link href="/login">Login</Link>
+                are you already logged in? <Link href="/login">Login</Link>
               </Typography>
             </form>
             {/* </Paper> */}
