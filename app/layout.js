@@ -1,11 +1,11 @@
 "use client";
-import { StoreProvider } from './Redux/storeProvider';
+import { StoreProvider } from "./Redux/storeProvider";
 import { Inter } from "next/font/google";
 import { Grid, ThemeProvider } from "@mui/material";
 import "./globals.css";
 import { darkTheme, lightTheme } from "./theme";
 import { useState } from "react";
-import Sidebar from "./components/sidebar/Sidebar";
+import Sidebar from "@/app/Components/sidebar/Sidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,18 +23,17 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <StoreProvider>
-
-        <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
-          <Grid container>
-            <Grid item xs={12} md={3}>
-              <Sidebar toggleTheme={toggleTheme} darkMode={isDarkTheme} />
+          <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
+            <Grid container>
+              <Grid item xs={12} md={3}>
+                <Sidebar toggleTheme={toggleTheme} darkMode={isDarkTheme} />
+              </Grid>
+              <Grid item xs={12} md={9}>
+                <div>{children}</div>
+              </Grid>
             </Grid>
-            <Grid item xs={12} md={9}>
-              <div>{children}</div>
-            </Grid>
-          </Grid>
-        </ThemeProvider>
-</StoreProvider>
+          </ThemeProvider>
+        </StoreProvider>
       </body>
     </html>
   );
