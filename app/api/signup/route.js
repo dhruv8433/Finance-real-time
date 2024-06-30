@@ -14,7 +14,7 @@ export async function POST(request) {
     console.log('Received user data:', { username, name, address });
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const token = jwt.sign({ username }, process.env.JWT_SECRET);
+    const token = jwt.sign({ username }, "finance-dashboard");
 
     const newUser = new signupUser({
       username,
