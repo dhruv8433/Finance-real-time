@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { BALANCE_API_KEY } from '@/app/Config/config';
 
-const BASE_URL = process.env.BALANCE_API_URL;
+const BASE_URL = 'https://financialmodelingprep.com/api/v3';
 
 export const fetchBalance = async (symbol) => {
   const url = `${BASE_URL}/income-statement-growth/AMZN?period=annual&apikey=${BALANCE_API_KEY}`;
