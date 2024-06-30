@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export const httpAxios = axios.create({
-  baseURL: "https://finance-dashboard-flax.vercel.app/",
+  baseURL: process.env.BASE_URL,
   // baseURL:"http://localhost:8000"
 });
