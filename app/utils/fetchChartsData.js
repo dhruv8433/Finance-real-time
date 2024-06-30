@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { CHART_API_KEY } from '../config/config';
+import { CHART_API_KEY } from '@/app/Config/config';
 
 const BASE_URL = 'https://financialmodelingprep.com/api/v3';
 
