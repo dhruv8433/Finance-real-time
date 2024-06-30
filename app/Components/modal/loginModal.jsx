@@ -20,6 +20,7 @@ import loginAnimation from "../../lottie-animation/login.json";
 import Toast from "../Toast";
 import Cookies from "js-cookie";
 import { loginUserFailure, loginUserSuccess } from "@/app/Redux/action/action";
+import { loginservice } from "@/app/utils/services/loginService";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
@@ -39,7 +40,7 @@ const LoginPage = () => {
     }
 
     try {
-      const response = await loginService(login.username, login.password);
+      const response = await loginservice(login.username, login.password);
       console.log(response);
       Cookies.set("user", true);
       dispatch(loginUserSuccess(response));
