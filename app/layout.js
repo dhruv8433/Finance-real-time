@@ -1,11 +1,11 @@
 "use client";
-import { StoreProvider } from './Redux/storeProvider';
 import { Inter } from "next/font/google";
 import { Grid, ThemeProvider } from "@mui/material";
 import "./globals.css";
 import { darkTheme, lightTheme } from "./theme";
 import { useState } from "react";
-import Sidebar from "./components/sidebar/Sidebar";
+import { StoreProvider } from "./Redux/storeProvider";
+import Sidebar from "./Components/sidebar/Sidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 
