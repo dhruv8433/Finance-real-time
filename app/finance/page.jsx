@@ -68,7 +68,7 @@ const Finance = () => {
                     </Typography>
                     <Typography
                       variant="body2"
-                      color={stock.d >= 0 ? "green" : "red"}
+                      color={stock && stock.d >= 0 ? "green" : "red"}
                     >
                       {stock.d >= 0 ? `+${stock.d}` : stock.d} ({stock.dp}%)
                     </Typography>
